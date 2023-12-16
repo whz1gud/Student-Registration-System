@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.studentregistrationsystem.GroupController">
+    <content>
+        <GridPane vgap="10" hgap="10">
+            <Label text="Group name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="groupField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        </GridPane>
+    </content>
+
+</DialogPane>

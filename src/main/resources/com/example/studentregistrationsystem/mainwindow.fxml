@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainBorderPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentregistrationsystem.Controller">
+    <top>
+        <VBox prefHeight="60.0" prefWidth="643.0">
+            <MenuBar>
+                <Menu text="File">
+                    <items>
+                        <MenuItem onAction="#showNewGroupDialog" text="New group" />
+                        <SeparatorMenuItem />
+                        <!--                        <MenuItem text="Edit" onAction=""/>-->
+                        <!--                        <SeparatorMenuItem/>-->
+                        <MenuItem onAction="#handleExit" text="Exit" />
+                    </items>
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <HBox spacing="10">
+                    <Button onAction="#showNewGroupDialog" text="New Group">
+                        <tooltip>
+                            <Tooltip text="add a new Student group" />
+                        </tooltip>
+                    </Button>
+                </HBox>
+            <Button mnemonicParsing="false" onAction="#exportPdf" text="Export .pdf" />
+            <Button mnemonicParsing="false" onAction="#exportXlsx" text="Export .xlsx" />
+            <Button mnemonicParsing="false" onAction="#importXlsx" text="Import .xlsx" />
+            </ToolBar>
+        </VBox>
+    </top>
+    <left>
+        <ListView fx:id="groupListView" onKeyPressed="#handleKeyPressed">
+
+        </ListView>
+    </left>
+    <center>
+        <VBox style="-fx-background-color: white">
+            <TableView fx:id="studentTable" onKeyPressed="#handleKeyPressedTable" prefHeight="371.0" prefWidth="478.0">
+                <columns>
+                    <TableColumn fx:id="firstNameColumn" prefWidth="75.0" text="Name" />
+                    <TableColumn fx:id="lastNameColumn" prefWidth="75.0" text="Surname" />
+                    <TableColumn fx:id="studentIdColumn" prefWidth="75.0" text="Student ID" />
+                </columns>
+            </TableView>
+            <HBox spacing="10">
+                <Button onAction="#showNewStudentDialog" text="New Student">
+                    <tooltip>
+                        <Tooltip text="add a new Student to the group." />
+                    </tooltip>
+                </Button>
+                <Label text="New Lecture Date:">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="datePicker" />
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>
